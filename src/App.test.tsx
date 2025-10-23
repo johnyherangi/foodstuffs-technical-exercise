@@ -1,9 +1,25 @@
 import App from "./App"
 import { render, screen } from "@testing-library/react"
-import { describe, it, expect } from "vitest"
+import { describe, it, expect, beforeAll, vi } from "vitest"
 import userEvent from "@testing-library/user-event"
 
 describe("App", () => {
+  // https://stackoverflow.com/questions/79790413/how-to-avoid-target-haspointercapture-is-not-a-function-when-testing-radix-ui-s
+  beforeAll(() => {
+    if (!Element.prototype.hasPointerCapture) {
+      Element.prototype.hasPointerCapture = vi.fn().mockReturnValue(false)
+    }
+    if (!Element.prototype.setPointerCapture) {
+      Element.prototype.setPointerCapture = vi.fn()
+    }
+    if (!Element.prototype.releasePointerCapture) {
+      Element.prototype.releasePointerCapture = vi.fn()
+    }
+    if (!Element.prototype.scrollIntoView) {
+      Element.prototype.scrollIntoView = vi.fn()
+    }
+  })
+
   it("renders", () => {
     const { asFragment } = render(<App />)
 
@@ -19,9 +35,7 @@ describe("App", () => {
     expect(
       screen.getByRole("spinbutton", { name: "Price per item ($)" })
     ).toBeInTheDocument()
-    expect(
-      screen.getByRole("combobox", { name: "State code" })
-    ).toBeInTheDocument()
+    expect(screen.getByLabelText("State code")).toBeInTheDocument()
     expect(
       screen.getByRole("button", { name: "Calculate total" })
     ).toBeInTheDocument()
@@ -44,8 +58,10 @@ describe("App", () => {
       })
       await user.type(pricePerItem, "100")
 
-      const stateCode = screen.getByRole("combobox", { name: "State code" })
-      await user.selectOptions(stateCode, state)
+      const stateCodeSelect = screen.getByLabelText("State code")
+      await user.click(stateCodeSelect)
+      const stateCode = screen.getByLabelText(state)
+      await user.click(stateCode)
 
       const submitButton = screen.getByRole("button", {
         name: "Calculate total",

@@ -20,8 +20,8 @@ export function SelectInput({
   options,
 }: SelectInputProps) {
   return (
-    <Select>
-      <SelectTrigger id={id} name={name}>
+    <Select name={name}>
+      <SelectTrigger id={id} aria-label={placeholder}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
