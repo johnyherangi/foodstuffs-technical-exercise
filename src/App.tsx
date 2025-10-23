@@ -1,4 +1,5 @@
 import "./App.css"
+import { SelectInput } from "./components/SelectInput"
 import { useCalculateTotal } from "./hooks/useCalculateTotal"
 import { stateCodes } from "./lib/state"
 
@@ -23,16 +24,12 @@ function App() {
             step="any"
           ></input>
         </div>
-        <div className="flex justify-between">
-          <label htmlFor="state">State code</label>
-          <select id="state" name="state">
-            {stateCodes.map((code) => (
-              <option key={code} value={code}>
-                {code}
-              </option>
-            ))}
-          </select>
-        </div>
+        <SelectInput
+          id="state"
+          name="state"
+          options={stateCodes}
+          placeholder="State code"
+        />
         <button className="mt-4">Calculate total</button>
       </form>
       <div className="flex justify-between mt-8">
