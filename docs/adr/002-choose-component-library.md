@@ -1,4 +1,4 @@
-# 001 Choose project type
+# 002 Choose component library
 
 ## Status
 
@@ -29,4 +29,3 @@ Pros:
 Cons:
 
 - More development time
-

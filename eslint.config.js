@@ -14,10 +14,12 @@ export default defineConfig([
       tseslint.configs.recommended,
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
+      "plugin:vitest-globals/recommended",
     ],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    env: { "vitest-globals/env": true },
   },
 ])
