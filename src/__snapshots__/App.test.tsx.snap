@@ -6,20 +6,21 @@ exports[`App > renders 1`] = `
     Retail Calculator
   </h1>
   <form
+    action="javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')"
     class="flex flex-col gap-4 mt-8"
   >
     <div
       class="flex justify-between"
     >
       <label
-        for="numItems"
+        for="items"
       >
         Number of items
       </label>
       <input
-        id="numItems"
+        id="items"
         min="0"
-        name="numItems"
+        name="items"
         type="number"
       />
     </div>
@@ -27,14 +28,15 @@ exports[`App > renders 1`] = `
       class="flex justify-between"
     >
       <label
-        for="pricePerItem"
+        for="price"
       >
         Price per item ($)
       </label>
       <input
-        id="pricePerItem"
+        id="price"
         min="0"
-        name="pricePerItem"
+        name="price"
+        step="any"
         type="number"
       />
     </div>
@@ -42,13 +44,13 @@ exports[`App > renders 1`] = `
       class="flex justify-between"
     >
       <label
-        for="stateCode"
+        for="state"
       >
         State code
       </label>
       <select
-        id="stateCode"
-        name="stateCode"
+        id="state"
+        name="state"
       >
         <option
           value="AUK"
@@ -77,9 +79,25 @@ exports[`App > renders 1`] = `
         </option>
       </select>
     </div>
-    <button>
+    <button
+      class="mt-4"
+    >
       Calculate total
     </button>
   </form>
+  <div
+    class="flex justify-between mt-8"
+  >
+    <label
+      for="total"
+    >
+      Total
+    </label>
+    <output
+      id="total"
+    >
+      $0.00
+    </output>
+  </div>
 </DocumentFragment>
 `;
