@@ -1,0 +1,26 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib": [
+            "ES2022",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "types": [
+            "@playwright/test"
+        ]
+    },
+    "include": [
+        "e2e/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
