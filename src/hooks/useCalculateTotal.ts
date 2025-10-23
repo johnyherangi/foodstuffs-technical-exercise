@@ -15,8 +15,6 @@ export function useCalculateTotal() {
       0
     const discounted = subTotal * (1 - discountRate)
 
-    console.log(subTotal)
-
     setTotal(discounted * (1 + stateTax[stateCode as State]))
   }
 
