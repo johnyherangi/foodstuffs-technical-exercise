@@ -23,7 +23,9 @@ function App() {
           <label htmlFor="stateCode">State code</label>
           <select id="stateCode" name="stateCode">
             {stateCodes.map((code) => (
-              <option value={code}>{code}</option>
+              <option key={code} value={code}>
+                {code}
+              </option>
             ))}
           </select>
         </div>
