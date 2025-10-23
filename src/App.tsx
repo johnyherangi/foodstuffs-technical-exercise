@@ -34,7 +34,7 @@ function App() {
       </form>
       <div className="flex justify-between mt-8">
         <label htmlFor="total">Total</label>
-        <output id="total">${total.toFixed(2)}</output>
+        <output id="total">{total}</output>
       </div>
     </>
   )

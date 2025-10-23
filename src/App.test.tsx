@@ -41,9 +41,16 @@ describe("App", () => {
     ).toBeInTheDocument()
   })
 
-  it.each([{ items: 10, price: 100, state: "AUK", tax: 0.0685 }])(
+  it.each([
+    {
+      items: 10,
+      price: 100,
+      state: "AUK",
+      expectedTotal: "$1,068.50",
+    },
+  ])(
     "calculates the correct total (items=$items, price=$price, state=$state)",
-    async ({ items, price, state, tax }) => {
+    async ({ items, price, state, expectedTotal }) => {
       render(<App />)
 
       const user = userEvent.setup()
@@ -51,12 +58,12 @@ describe("App", () => {
       const itemCount = screen.getByRole("spinbutton", {
         name: "Number of items",
       })
-      await user.type(itemCount, "10")
+      await user.type(itemCount, String(items))
 
       const pricePerItem = screen.getByRole("spinbutton", {
         name: "Price per item ($)",
       })
-      await user.type(pricePerItem, "100")
+      await user.type(pricePerItem, String(price))
 
       const stateCodeSelect = screen.getByLabelText("State code")
       await user.click(stateCodeSelect)
@@ -68,11 +75,9 @@ describe("App", () => {
       })
       await user.click(submitButton)
 
-      const expectedTotal = items * price * (1 + tax)
-
       expect(
         await screen.findByRole("status", { name: "Total" })
-      ).toHaveTextContent(`$${expectedTotal.toFixed(2)}`)
+      ).toHaveTextContent(`${expectedTotal}`)
     }
   )
 })
