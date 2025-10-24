@@ -1,6 +1,7 @@
 import "./App.css"
 import { NumberInput } from "./components/NumberInput"
 import { SelectInput } from "./components/SelectInput"
+import { SubmitButton } from "./components/SubmitButton"
 import { useCalculateTotal } from "./hooks/useCalculateTotal"
 import { stateCodes } from "./lib/state"
 
@@ -28,7 +29,7 @@ function App() {
           placeholder="State code"
           className="w-full"
         />
-        <button className="mt-4">Calculate total</button>
+        <SubmitButton className="mt-4">Calculate total</SubmitButton>
       </form>
       <div className="flex justify-between mt-8">
         <label htmlFor="total">Total</label>
