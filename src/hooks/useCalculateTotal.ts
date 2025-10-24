@@ -4,7 +4,7 @@ import currency from "currency.js"
 import { useState } from "react"
 
 export function useCalculateTotal() {
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState<string>()
 
   const calculateTotal = (formData: FormData) => {
     const itemCount = Number(formData.get("items"))
@@ -16,7 +16,7 @@ export function useCalculateTotal() {
         ?.rate ?? 0
     const discounted = subTotal.multiply(1 - discountRate)
 
-    setTotal(discounted.multiply(1 + stateTax[stateCode as State]).value)
+    setTotal(discounted.multiply(1 + stateTax[stateCode as State]).format())
   }
 
   return { total, calculateTotal }

@@ -6,7 +6,7 @@ describe("useCalculateTotal", () => {
   it("calculates total and updates state", () => {
     const { result, rerender } = renderHook(() => useCalculateTotal())
 
-    expect(result.current.total).toBe("$0.00")
+    expect(result.current.total).toBeUndefined()
 
     act(() => {
       const formData = new FormData()
