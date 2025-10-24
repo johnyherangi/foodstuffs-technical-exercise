@@ -1,20 +1,39 @@
 import { test, expect } from "@playwright/test"
 
-test("has title", async ({ page }) => {
-  await page.goto("/")
+test("Basic user flow", async ({ page }) => {
+  const items = "10"
+  const price = "100"
+  const state = "AUK"
+  const expectedTotal = "$1,068.50"
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Retail Calculator/)
-})
-
-test("get started link", async ({ page }) => {
   await page.goto("/")
 
   // Click the get started link.
-  await page.getByRole("link", { name: "Get started" }).click()
+  const submitButton = page.getByRole("button", {
+    name: "Calculate total",
+  })
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(
-    page.getByRole("heading", { name: "Installation" })
-  ).toBeVisible()
+  expect(submitButton).toBeDisabled()
+
+  await page
+    .getByRole("spinbutton", {
+      name: "Number of items",
+    })
+    .fill(items)
+
+  await page
+    .getByRole("spinbutton", {
+      name: "Price per item ($)",
+    })
+    .fill(price)
+
+  await page.getByLabel("State code").click()
+  await page.getByLabel(state).click()
+
+  expect(submitButton).toBeEnabled()
+  await submitButton.click()
+
+  expect(page.getByRole("status", { name: "Total" })).toHaveText(
+    `${expectedTotal}`
+  )
 })
