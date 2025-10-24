@@ -6,7 +6,7 @@ describe("useCalculateTotal", () => {
   it("calculates total and updates state", () => {
     const { result, rerender } = renderHook(() => useCalculateTotal())
 
-    expect(result.current.total).toBe(0)
+    expect(result.current.total).toBeUndefined()
 
     act(() => {
       const formData = new FormData()
@@ -18,6 +18,6 @@ describe("useCalculateTotal", () => {
 
     rerender()
 
-    expect(result.current.total).toBe(1068.5)
+    expect(result.current.total).toBe("$1,068.50")
   })
 })
