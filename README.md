@@ -29,5 +29,5 @@ pnpm run e2e
 ### Adding UI components
 
 ```bash
-$ pnpm dlx shadcn@latest add <component>
+pnpm dlx shadcn@latest add <component>
 ```
