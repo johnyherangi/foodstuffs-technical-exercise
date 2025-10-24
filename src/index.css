@@ -8,10 +8,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -19,37 +15,37 @@
   --radius: 0.625rem;
 
   /* Foodstuffs Brand Colors */
-  --background: oklch(1 0 0); /* White #FFFFFF */
-  --foreground: oklch(0.145 0.003 179.28); /* Deep Teal #003938 */
-  --card: oklch(1 0 0); /* White */
-  --card-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --popover: oklch(1 0 0); /* White */
-  --popover-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --primary: oklch(0.145 0.003 179.28); /* Deep Teal #003938 */
-  --primary-foreground: oklch(1 0 0); /* White */
-  --secondary: oklch(0.68 0.2 142); /* Green Haze #00AE3F */
-  --secondary-foreground: oklch(1 0 0); /* White */
+  --background: #ffffff; /* White #FFFFFF */
+  --foreground: #003938; /* Deep Teal #003938 */
+  --card: #ffffff; /* White */
+  --card-foreground: #003938; /* Deep Teal */
+  --popover: #ffffff; /* White */
+  --popover-foreground: #003938; /* Deep Teal */
+  --primary: #003938; /* Deep Teal #003938 */
+  --primary-foreground: #ffffff; /* White */
+  --secondary: #00ae3f; /* Green Haze #00AE3F */
+  --secondary-foreground: #ffffff; /* White */
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.73 0.134 180); /* Robin's Egg Blue #00BCBC */
-  --accent-foreground: oklch(1 0 0); /* White */
+  --accent: #00bcbc; /* Robin's Egg Blue #00BCBC */
+  --accent-foreground: #ffffff; /* White */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.73 0.134 180); /* Robin's Egg Blue for focus rings */
-  --chart-1: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --chart-2: oklch(0.68 0.2 142); /* Green Haze */
-  --chart-3: oklch(0.73 0.134 180); /* Robin's Egg Blue */
+  --ring: #00bcbc; /* Robin's Egg Blue for focus rings */
+  --chart-1: #003938; /* Deep Teal */
+  --chart-2: #00ae3f; /* Green Haze */
+  --chart-3: #00bcbc; /* Robin's Egg Blue */
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --sidebar-primary: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --sidebar-primary-foreground: oklch(1 0 0); /* White */
+  --sidebar-foreground: #003938; /* Deep Teal */
+  --sidebar-primary: #003938; /* Deep Teal */
+  --sidebar-primary-foreground: #ffffff; /* White */
   --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
+  --sidebar-accent-foreground: #003938; /* Deep Teal */
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.73 0.134 180); /* Robin's Egg Blue */
+  --sidebar-ring: #00bcbc; /* Robin's Egg Blue */
 }
 
 a {
@@ -81,44 +77,44 @@ h1 {
   --radius-xl: calc(var(--radius) + 4px);
 
   /* Foodstuffs Brand Colors for Tailwind v4 */
-  --color-primary: oklch(0.145 0.003 179.28); /* Deep Teal #003938 */
-  --color-primary-50: oklch(0.95 0.001 179.28);
-  --color-primary-100: oklch(0.9 0.001 179.28);
-  --color-primary-200: oklch(0.8 0.002 179.28);
-  --color-primary-300: oklch(0.7 0.002 179.28);
-  --color-primary-400: oklch(0.6 0.003 179.28);
-  --color-primary-500: oklch(0.145 0.003 179.28); /* Main Deep Teal */
-  --color-primary-600: oklch(0.12 0.003 179.28);
-  --color-primary-700: oklch(0.1 0.003 179.28);
-  --color-primary-800: oklch(0.08 0.003 179.28);
-  --color-primary-900: oklch(0.06 0.003 179.28);
-  --color-primary-950: oklch(0.04 0.003 179.28);
+  --color-primary: #003938; /* Deep Teal #003938 */
+  --color-primary-50: #f0f9f9;
+  --color-primary-100: #ccebe8;
+  --color-primary-200: #99d6d1;
+  --color-primary-300: #66c2ba;
+  --color-primary-400: #33ada3;
+  --color-primary-500: #003938; /* Main Deep Teal */
+  --color-primary-600: #002d2c;
+  --color-primary-700: #002121;
+  --color-primary-800: #001515;
+  --color-primary-900: #000a0a;
+  --color-primary-950: #000505;
 
-  --color-secondary: oklch(0.68 0.2 142); /* Green Haze #00AE3F */
-  --color-secondary-50: oklch(0.95 0.02 142);
-  --color-secondary-100: oklch(0.9 0.04 142);
-  --color-secondary-200: oklch(0.85 0.08 142);
-  --color-secondary-300: oklch(0.8 0.12 142);
-  --color-secondary-400: oklch(0.74 0.16 142);
-  --color-secondary-500: oklch(0.68 0.2 142); /* Main Green Haze */
-  --color-secondary-600: oklch(0.62 0.18 142);
-  --color-secondary-700: oklch(0.56 0.16 142);
-  --color-secondary-800: oklch(0.5 0.14 142);
-  --color-secondary-900: oklch(0.44 0.12 142);
-  --color-secondary-950: oklch(0.38 0.1 142);
+  --color-secondary: #00ae3f; /* Green Haze #00AE3F */
+  --color-secondary-50: #f0fdf4;
+  --color-secondary-100: #dcfce7;
+  --color-secondary-200: #bbf7d0;
+  --color-secondary-300: #86efac;
+  --color-secondary-400: #4ade80;
+  --color-secondary-500: #00ae3f; /* Main Green Haze */
+  --color-secondary-600: #008b32;
+  --color-secondary-700: #006825;
+  --color-secondary-800: #004519;
+  --color-secondary-900: #00220c;
+  --color-secondary-950: #001106;
 
-  --color-accent: oklch(0.73 0.134 180); /* Robin's Egg Blue #00BCBC */
-  --color-accent-50: oklch(0.95 0.013 180);
-  --color-accent-100: oklch(0.9 0.027 180);
-  --color-accent-200: oklch(0.85 0.054 180);
-  --color-accent-300: oklch(0.8 0.081 180);
-  --color-accent-400: oklch(0.765 0.108 180);
-  --color-accent-500: oklch(0.73 0.134 180); /* Main Robin's Egg Blue */
-  --color-accent-600: oklch(0.68 0.121 180);
-  --color-accent-700: oklch(0.63 0.107 180);
-  --color-accent-800: oklch(0.58 0.094 180);
-  --color-accent-900: oklch(0.53 0.081 180);
-  --color-accent-950: oklch(0.48 0.067 180);
+  --color-accent: #00bcbc; /* Robin's Egg Blue #00BCBC */
+  --color-accent-50: #f0fdfd;
+  --color-accent-100: #ccf7f7;
+  --color-accent-200: #99efef;
+  --color-accent-300: #66e7e7;
+  --color-accent-400: #33dfdf;
+  --color-accent-500: #00bcbc; /* Main Robin's Egg Blue */
+  --color-accent-600: #009696;
+  --color-accent-700: #007070;
+  --color-accent-800: #004b4b;
+  --color-accent-900: #002525;
+  --color-accent-950: #001313;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -152,37 +148,37 @@ h1 {
 
 .dark {
   /* Foodstuffs Dark Mode with Brand Colors */
-  --background: oklch(0.145 0.003 179.28); /* Deep Teal background */
-  --foreground: oklch(1 0 0); /* White text */
-  --card: oklch(0.205 0.002 179.28); /* Slightly lighter Deep Teal */
-  --card-foreground: oklch(1 0 0); /* White */
-  --popover: oklch(0.205 0.002 179.28); /* Slightly lighter Deep Teal */
-  --popover-foreground: oklch(1 0 0); /* White */
-  --primary: oklch(0.73 0.134 180); /* Robin's Egg Blue for contrast */
-  --primary-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --secondary: oklch(0.68 0.2 142); /* Green Haze */
-  --secondary-foreground: oklch(1 0 0); /* White */
-  --muted: oklch(0.269 0.002 179.28);
+  --background: #003938; /* Deep Teal background */
+  --foreground: #ffffff; /* White text */
+  --card: #004b4b; /* Slightly lighter Deep Teal */
+  --card-foreground: #ffffff; /* White */
+  --popover: #004b4b; /* Slightly lighter Deep Teal */
+  --popover-foreground: #ffffff; /* White */
+  --primary: #00bcbc; /* Robin's Egg Blue for contrast */
+  --primary-foreground: #003938; /* Deep Teal */
+  --secondary: #00ae3f; /* Green Haze */
+  --secondary-foreground: #ffffff; /* White */
+  --muted: #002d2c;
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.68 0.2 142); /* Green Haze for accents */
-  --accent-foreground: oklch(1 0 0); /* White */
+  --accent: #00ae3f; /* Green Haze for accents */
+  --accent-foreground: #ffffff; /* White */
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.73 0.134 180); /* Robin's Egg Blue */
-  --chart-1: oklch(0.73 0.134 180); /* Robin's Egg Blue */
-  --chart-2: oklch(0.68 0.2 142); /* Green Haze */
-  --chart-3: oklch(0.145 0.003 179.28); /* Deep Teal */
+  --ring: #00bcbc; /* Robin's Egg Blue */
+  --chart-1: #00bcbc; /* Robin's Egg Blue */
+  --chart-2: #00ae3f; /* Green Haze */
+  --chart-3: #003938; /* Deep Teal */
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0.002 179.28);
-  --sidebar-foreground: oklch(1 0 0); /* White */
-  --sidebar-primary: oklch(0.73 0.134 180); /* Robin's Egg Blue */
-  --sidebar-primary-foreground: oklch(0.145 0.003 179.28); /* Deep Teal */
-  --sidebar-accent: oklch(0.269 0.002 179.28);
-  --sidebar-accent-foreground: oklch(1 0 0); /* White */
+  --sidebar: #004b4b;
+  --sidebar-foreground: #ffffff; /* White */
+  --sidebar-primary: #00bcbc; /* Robin's Egg Blue */
+  --sidebar-primary-foreground: #003938; /* Deep Teal */
+  --sidebar-accent: #002d2c;
+  --sidebar-accent-foreground: #ffffff; /* White */
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.73 0.134 180); /* Robin's Egg Blue */
+  --sidebar-ring: #00bcbc; /* Robin's Egg Blue */
 }
 
 @layer base {
