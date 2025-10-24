@@ -33,7 +33,8 @@ test("Basic user flow", async ({ page }) => {
   expect(submitButton).toBeEnabled()
   await submitButton.click()
 
-  expect(page.getByRole("status", { name: "Total" })).toHaveText(
-    `${expectedTotal}`
+  // Wait for the total to be calculated and displayed
+  await expect(page.getByRole("status", { name: "Total" })).toHaveText(
+    expectedTotal
   )
 })
