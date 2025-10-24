@@ -1,3 +1,6 @@
+import { discountRates } from "@/lib/discount"
+import { stateTax, type State } from "@/lib/state"
+import currency from "currency.js"
 import { useState } from "react"
 import { discountRates } from "@/lib/discount" // [{ orderValue: number (dollars), rate: number (0..1) }]
 import { stateTax, type State } from "@/lib/state" // e.g. { CA: 0.0725, ... }
@@ -32,34 +35,19 @@ function applyBp(amountCents: bigint, rateBp: Bp): bigint {
 }
 
 export function useCalculateTotal() {
-  // keep internal state in cents
-  const [totalCents, setTotalCents] = useState<bigint>(0n)
+  const [total, setTotal] = useState<string>()
 
   const calculateTotal = (formData: FormData) => {
-    const itemCount = parseIntStrict(formData.get("items")) // count in whole units
-    const pricePerItemCents = parseMoneyToCents(formData.get("price"))
-    const stateCode = formData.get("state") as State | null
-    if (!stateCode) throw new Error("Missing state")
-
-    // Subtotal in cents
-    const subTotal = itemCount * pricePerItemCents
-
-    // Find discount bracket based on subtotal (convert thresholds to cents once)
-    // Assumes discountRates sorted ascending by orderValue
+    const itemCount = Number(formData.get("items"))
+    const pricePerItem = Number(formData.get("price"))
+    const stateCode = formData.get("state")
+    const subTotal = currency(itemCount).multiply(pricePerItem)
     const discountRate =
-      [...discountRates]
-        .filter((d) => subTotal > BigInt(Math.round(d.orderValue * 100))) // orderValue is dollars
-        .at(-1)?.rate ?? 0
+      [...discountRates].filter((d) => subTotal.value > d.orderValue).at(-1)
+        ?.rate ?? 0
+    const discounted = subTotal.multiply(1 - discountRate)
 
-    const discountBp = rateToBp(discountRate)
-    const discounted = subTotal - applyBp(subTotal, discountBp) // subtotal - discount
-
-    // Tax as basis points
-    const taxBp = rateToBp(stateTax[stateCode]) // e.g. 0.0685 -> 685n
-    const taxAmount = applyBp(discounted, taxBp)
-
-    const total = discounted + taxAmount // still cents
-    setTotalCents(total)
+    setTotal(discounted.multiply(1 + stateTax[stateCode as State]).format())
   }
 
   // helper to format for UI
