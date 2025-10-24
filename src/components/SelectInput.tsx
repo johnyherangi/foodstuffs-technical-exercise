@@ -6,23 +6,27 @@ import {
   SelectValue,
 } from "./ui/select"
 
-export type SelectInputProps = {
+export type SelectInputProps<T extends string> = {
   id: string
   name: string
   placeholder?: string
   options: readonly string[]
   className?: string
+  value?: T
+  onChange?: (value: T) => void
 }
 
-export function SelectInput({
+export function SelectInput<T extends string>({
   id,
   name,
   placeholder,
   options,
   className,
-}: SelectInputProps) {
+  value,
+  onChange,
+}: SelectInputProps<T>) {
   return (
-    <Select name={name}>
+    <Select name={name} value={value} onValueChange={onChange}>
       <SelectTrigger id={id} aria-label={placeholder} className={className}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
