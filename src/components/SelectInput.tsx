@@ -11,6 +11,7 @@ export type SelectInputProps = {
   name: string
   placeholder?: string
   options: readonly string[]
+  className?: string
 }
 
 export function SelectInput({
@@ -18,10 +19,11 @@ export function SelectInput({
   name,
   placeholder,
   options,
+  className,
 }: SelectInputProps) {
   return (
     <Select name={name}>
-      <SelectTrigger id={id} aria-label={placeholder}>
+      <SelectTrigger id={id} aria-label={placeholder} className={className}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
