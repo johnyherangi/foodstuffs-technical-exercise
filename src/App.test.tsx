@@ -53,6 +53,12 @@ describe("App", () => {
     async ({ items, price, state, expectedTotal }) => {
       render(<App />)
 
+      const submitButton = screen.getByRole("button", {
+        name: "Calculate total",
+      })
+
+      expect(submitButton).toBeDisabled()
+
       const user = userEvent.setup()
 
       const itemCount = screen.getByRole("spinbutton", {
@@ -70,9 +76,7 @@ describe("App", () => {
       const stateCode = screen.getByLabelText(state)
       await user.click(stateCode)
 
-      const submitButton = screen.getByRole("button", {
-        name: "Calculate total",
-      })
+      expect(submitButton).toBeEnabled()
       await user.click(submitButton)
 
       expect(
