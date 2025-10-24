@@ -39,15 +39,19 @@ function App() {
             onChange={(e) => setPrice(Number(e.target.value))}
           />
         </div>
-        <SelectInput
-          id="state"
-          name="state"
-          options={stateCodes}
-          placeholder="State code"
-          className="w-full"
-          value={state}
-          onChange={setState}
-        />
+        <div className="flex flex-col items-start">
+          <label htmlFor="state" className="text-nowrap">
+            State code
+          </label>
+          <SelectInput
+            id="state"
+            name="state"
+            options={stateCodes}
+            className="w-full"
+            value={state}
+            onChange={setState}
+          />
+        </div>
         <SubmitButton disabled={!items || !price || !state} className="mt-4">
           Calculate total
         </SubmitButton>
