@@ -15,6 +15,8 @@ export default defineConfig({
   testDir: "./e2e",
   /* Use the dedicated TypeScript config for e2e tests */
   tsconfig: "./tsconfig.e2e.json",
+  /* Global timeout for each test */
+  timeout: 30 * 1000, // 30 seconds
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -79,5 +81,6 @@ export default defineConfig({
     command: "pnpm run dev",
     url: "http://localhost:5173",
     reuseExistingServer: !process.env.CI,
+    timeout: 120 * 1000, // 2 minutes timeout for CI
   },
 })
