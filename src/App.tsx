@@ -19,7 +19,7 @@ function App() {
       <Card className="shadow-2xl overflow-hidden p-0">
         {/* Header with logo overlay */}
         <div className="relative">
-          <div className="bg-secondary h-24 rounded-t-xl" />
+          <div className="bg-secondary h-18 rounded-t-xl" />
           <div className="absolute left-16 top-full -translate-x-1/2 -translate-y-1/2">
             <div className="w-16 h-16 bg-white rounded-full p-2 shadow-lg">
               <img

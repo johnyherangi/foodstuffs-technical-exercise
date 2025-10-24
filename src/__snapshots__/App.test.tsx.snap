@@ -13,7 +13,7 @@ exports[`App > renders 1`] = `
         class="relative"
       >
         <div
-          class="bg-secondary h-24 rounded-t-xl"
+          class="bg-secondary h-18 rounded-t-xl"
         />
         <div
           class="absolute left-16 top-full -translate-x-1/2 -translate-y-1/2"
